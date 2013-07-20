@@ -39,7 +39,7 @@ class NotifierService {
                 informSubmission( message, 'contact@kapasoft.com', 'ContactUs Received')
                 break;
             case 'Newsletter':
-                String message = 'Application name: rental \n Email subscribtion received with email: ' + objIns.email
+                String message = 'Application name: ' + objIns?.hostname + ' \n Email subscribtion received with email: ' + objIns.email
                 informSubmission( message, 'contact@kapasoft.com', 'Newsletter Subscription')
                 break;
         }
