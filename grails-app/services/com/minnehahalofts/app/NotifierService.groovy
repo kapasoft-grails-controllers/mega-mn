@@ -4,7 +4,7 @@ class NotifierService {
     static transactional = false
 
     def mailService
-    def customerServiceEmail = 'contact@designssquare.com'
+    def customerServiceEmail = 'kmwaura@gmail.com'
 
     def informSubmission(inquiry, email, sub) {
         mailService.sendMail {
