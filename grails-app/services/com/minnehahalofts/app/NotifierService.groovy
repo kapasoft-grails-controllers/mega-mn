@@ -5,6 +5,7 @@ class NotifierService {
 
     def mailService
     def customerServiceEmail = 'kmwaura@gmail.com'
+    def applicationName = 'mega-mn'
 
     def informSubmission(inquiry, email, sub) {
         mailService.sendMail {
@@ -25,18 +26,18 @@ class NotifierService {
     def registerRequest(objIns){
         switch(objIns.class.toString().split('\\.')[-1]){
             case 'Review':
-                String message = 'Application name: rental \n' +
+                String message = 'Application name: ' + applicationName + ' \n' +
                         ' From: ' + objIns.submittedBy + '\n Rental Unit: ' + objIns.rentalUnit + '\n Content: ' + objIns.content
                 informSubmission( message, customerServiceEmail, 'Review Received')
                 break;
             case 'Inquiry':
-                String message = 'Application name: rental \n' +
+                String message = 'Application name: ' + applicationName + ' \n' +
                         ' From: ' + objIns.userEmail + '\n Rental Unit: ' + objIns.rentalUnit + '\n Content: ' + objIns.inqContent
                 informSubmission( message, customerServiceEmail, 'Inquiry Received')
                 contactUser(objIns.userEmail,"Thank You For Inquiry", "Thank you. We received your inquiry and we will respond as soon as possible")
                 break;
             case 'Contact':
-                String message = 'Application name: rental \n From: ' + objIns.name + ' (' + objIns.email + ' and ' + objIns.phone + ')' + '\n ' + '\n Message: ' + objIns.message
+                String message = 'Application name: ' + applicationName + ' \n From: ' + objIns.name + ' (' + objIns.email + ' and ' + objIns.phone + ')' + '\n ' + '\n Message: ' + objIns.message
                 informSubmission( message, customerServiceEmail, 'ContactUs Received')
                 break;
             case 'Newsletter':
